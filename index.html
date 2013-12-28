@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>alertify.js - Bootstrap 3 Theme</title>
+    <meta name="description" content="Free Web tutorials">
+    <meta name="keywords" content="alertify, bootstrap, theme">
+    <meta name="author" content="Ismail Demirbilek">
+	<meta name="viewport" content="width=device-width">
+
+    <link rel="stylesheet" href="alertify/themes/alertify.core.css" />
+    <link rel="stylesheet" href="alertify/themes/alertify.bootstrap3.css" />
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/onepage-scroll.css" />
+
+	<style>
+		.alertify-log-custom {
+			background: blue;
+		}
+        body {
+            background: #ecf0f1;
+        }
+	</style>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+</head>
+<body>
+    <div class="main">
+        <section style="padding-top:100px">
+            <div class="page-header text-center">
+                <h1>Alertify Bootstrap 3 Theme</h1>
+                <p class="text-center">
+                    Bootstrap 3 look & feel for awesome <a href="http://fabien-d.github.io/alertify.js/">alertify.js</a>, brought by <a href="http://twitter.com/dbtek">@dbtek</a>.
+                </p>
+                <p class="text-center">
+                    <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://dbtek.github.io/alertify-bootstrap-3" data-via="dbtek">Tweet</a>
+                    <iframe src="http://ghbtns.com/github-btn.html?user=dbtek&repo=alertify-bootstrap-3&type=watch&count=true"
+             -  allowtransparency="true" frameborder="0" scrolling="0" width="107" height="20"></iframe>
+                </p>
+            </div>
+
+            <p class="text-center">
+                <a class="btn btn-lg btn-primary" href="https://github.com/dbtek/alertify-bootstrap-3/archive/master.zip">Download</a>
+                <button class="btn btn-lg btn-danger" onclick=" $('.main').moveDown();">Examples</button>
+                <a class="btn btn-lg btn-info" href="https://github.com/dbtek/alertify-bootstrap-3">Source</a>
+            </p>
+
+        </section>
+
+        <section>
+            <div class="page-header text-center">
+                <h1>Examples</h1>
+            </div>
+            <div class="container">
+                <h2>Dialogs</h2>
+                <a href="#" id="alert">Alert Dialog</a><br>
+                <a href="#" id="confirm">Confirm Dialog</a><br>
+                <a href="#" id="prompt">Prompt Dialog</a><br>
+                <a href="#" id="labels">Custom Labels</a><br>
+                <a href="#" id="focus">Button Focus</a><br>
+                <a href="#" id="order">Button Order</a>
+
+                <h2>Ajax</h2>
+                <a href="#" id="ajax">Ajax - Multiple Dialog</a>
+
+                <h2>Logs</h2>
+                <a href="#" id="notification">Standard Log</a><br>
+                <a href="#" id="success">Success Log</a><br>
+                <a href="#" id="error">Error Log</a><br>
+                <a href="#" id="custom">Custom Log</a><br>
+                <a href="#" id="delay">Hide in 10 seconds</a><br>
+                <a href="#" id="forever">Persistent Log</a>
+
+            </div>
+        </section>
+    </div>
+
+	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	<script src="alertify/alertify.min.js"></script>
+	<script src="js/jquery.onepage-scroll.min.js"></script>
+	<script>
+		function reset () {
+			$("#toggleCSS").attr("href", "../themes/alertify.default.css");
+			alertify.set({
+				labels : {
+					ok     : "OK",
+					cancel : "Cancel"
+				},
+				delay : 5000,
+				buttonReverse : false,
+				buttonFocus   : "ok"
+			});
+		}
+
+        // On page scroll
+        $(".main").onepage_scroll({
+           sectionContainer: "section",
+           easing: "ease",
+           animationTime: 1000,
+           pagination: true,
+           updateURL: false,
+           beforeMove: function(index) {},
+           afterMove: function(index) {},
+           loop: false,
+           responsiveFallback: false
+        });
+
+		// ==============================
+		// Standard Dialogs
+		$("#alert").on( 'click', function () {
+			reset();
+			alertify.alert("This is an alert dialog");
+			return false;
+		});
+
+		$("#confirm").on( 'click', function () {
+			reset();
+			alertify.confirm("This is a confirm dialog", function (e) {
+				if (e) {
+					alertify.success("You've clicked OK");
+				} else {
+					alertify.error("You've clicked Cancel");
+				}
+			});
+			return false;
+		});
+
+		$("#prompt").on( 'click', function () {
+			reset();
+			alertify.prompt("This is a prompt dialog", function (e, str) {
+				if (e) {
+					alertify.success("You've clicked OK and typed: " + str);
+				} else {
+					alertify.error("You've clicked Cancel");
+				}
+			}, "Default Value");
+			return false;
+		});
+
+		// ==============================
+		// Ajax
+		$("#ajax").on("click", function () {
+			reset();
+			alertify.confirm("Confirm?", function (e) {
+				if (e) {
+					alertify.alert("Successful AJAX after OK");
+				} else {
+					alertify.alert("Successful AJAX after Cancel");
+				}
+			});
+		});
+
+		// ==============================
+		// Standard Dialogs
+		$("#notification").on( 'click', function () {
+			reset();
+			alertify.log("Standard log message");
+			return false;
+		});
+
+		$("#success").on( 'click', function () {
+			reset();
+			alertify.success("Success log message");
+			return false;
+		});
+
+		$("#error").on( 'click', function () {
+			reset();
+			alertify.error("Error log message");
+			return false;
+		});
+
+		// ==============================
+		// Custom Properties
+		$("#delay").on( 'click', function () {
+			reset();
+			alertify.set({ delay: 10000 });
+			alertify.log("Hiding in 10 seconds");
+			return false;
+		});
+
+		$("#forever").on( 'click', function () {
+			reset();
+			alertify.log("Will stay until clicked", "", 0);
+			return false;
+		});
+
+		$("#labels").on( 'click', function () {
+			reset();
+			alertify.set({ labels: { ok: "Accept", cancel: "Deny" } });
+			alertify.confirm("Confirm dialog with custom button labels", function (e) {
+				if (e) {
+					alertify.success("You've clicked OK");
+				} else {
+					alertify.error("You've clicked Cancel");
+				}
+			});
+			return false;
+		});
+
+		$("#focus").on( 'click', function () {
+			reset();
+			alertify.set({ buttonFocus: "cancel" });
+			alertify.confirm("Confirm dialog with cancel button focused", function (e) {
+				if (e) {
+					alertify.success("You've clicked OK");
+				} else {
+					alertify.error("You've clicked Cancel");
+				}
+			});
+			return false;
+		});
+
+		$("#order").on( 'click', function () {
+			reset();
+			alertify.set({ buttonReverse: true });
+			alertify.confirm("Confirm dialog with reversed button order", function (e) {
+				if (e) {
+					alertify.success("You've clicked OK");
+				} else {
+					alertify.error("You've clicked Cancel");
+				}
+			});
+			return false;
+		});
+
+		// ==============================
+		// Custom Log
+		$("#custom").on( 'click', function () {
+			reset();
+			alertify.custom = alertify.extend("custom");
+			alertify.custom("I'm a custom log message");
+			return false;
+		});
+	</script>
+
+</body>
+</html>
