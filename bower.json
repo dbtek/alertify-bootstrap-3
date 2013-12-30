@@ -1,0 +1,26 @@
+{
+  "name": "alertify-bootstrap-3",
+  "version": "1.0.0",
+  "homepage": "https://github.com/dbtek/alertify-bootstrap-3",
+  "authors": [
+    "Ismail Demirbilek <ce.demirbilek@gmail.com>"
+  ],
+  "description": "Bootstrap 3 look & feel for alertify.js",
+  "main": "themes/alertify.bootstrap-3.css",
+  "keywords": [
+    "alertify",
+    "bootstrap",
+    "theme"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "alertify": "~0.3.10"
+  }
+}
