@@ -12,6 +12,7 @@ Bootsrap 3 look & feel for your notifications.
 
 ## Usage
 - Inlcude core and theme css  
+
 ```html
   <!-- Alertify core css -->
   <link rel="stylesheet" href="alertify/themes/alertify.core.css" />
