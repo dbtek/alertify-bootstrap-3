@@ -6,7 +6,7 @@
     "Ismail Demirbilek <ce.demirbilek@gmail.com>"
   ],
   "description": "Bootstrap 3 look & feel for alertify.js",
-  "main": "themes/alertify.bootstrap-3.css",
+  "main": "alertify.bootstrap3.css",
   "keywords": [
     "alertify",
     "bootstrap",
