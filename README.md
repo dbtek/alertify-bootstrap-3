@@ -10,6 +10,8 @@ Bootsrap 3 look & feel for your notifications.
 - via git  
 ```git clone https://github.com/dbtek/alertify-bootstrap-3.git```
 
+![screenshot](screenshot.jpg)
+
 
 ## Usage
 - Inlcude core and theme css  
