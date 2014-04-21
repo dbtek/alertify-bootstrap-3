@@ -1,7 +1,7 @@
 alertify.js Bootstrap 3 Theme
 =============================
 
-Bootsrap 3 look & feel for your notifications.
+Bootsrap 3 look & feel for your notifications. See it [in action](http://dbtek.github.io/alertify-bootstrap-3).
 
 ## Install
 - via bower (recommended, installs alertify also as a dependency)  
