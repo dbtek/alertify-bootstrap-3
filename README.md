@@ -1,4 +1,4 @@
-alertify.js Bootstrap 3 Theme
+alertify.js Bootstrap 3 Theme ![bower version](http://img.shields.io/bower/v/alertify-bootstrap-3.svg)
 =============================
 
 Bootsrap 3 look & feel for your notifications. See it [in action](http://dbtek.github.io/alertify-bootstrap-3).
